@@ -1,0 +1,37 @@
+# Project: Hoja03
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = menu_principal.o club_futbol_menu.o pizzeria_menu.o vehiculos_menu.o
+LINKOBJ  = menu_principal.o club_futbol_menu.o pizzeria_menu.o vehiculos_menu.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Hoja03.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+menu_principal.o: menu_principal.cpp
+	$(CPP) -c menu_principal.cpp -o menu_principal.o $(CXXFLAGS)
+
+club_futbol_menu.o: club_futbol_menu.cpp
+	$(CPP) -c club_futbol_menu.cpp -o club_futbol_menu.o $(CXXFLAGS)
+
+pizzeria_menu.o: pizzeria_menu.cpp
+	$(CPP) -c pizzeria_menu.cpp -o pizzeria_menu.o $(CXXFLAGS)
+
+vehiculos_menu.o: vehiculos_menu.cpp
+	$(CPP) -c vehiculos_menu.cpp -o vehiculos_menu.o $(CXXFLAGS)

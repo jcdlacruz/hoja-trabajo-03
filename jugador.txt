@@ -1,0 +1,2 @@
+Messi	21	Extranjero
+Plata	31	Nacional
